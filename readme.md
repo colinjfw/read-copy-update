@@ -12,7 +12,7 @@ by calling [`Rcu::reader`], this provides a handle which allows accessing a valu
 [`Reader::read`].
 
 ```
-# use rcu::Rcu;
+# use read_copy_update::Rcu;
 # use std::{thread, time::Duration};
 let mut rcu = Rcu::new(10);
 
@@ -33,7 +33,7 @@ flag enabled [`Reader`] instances can be associated to a thread allowing lock fr
 publishing across thread-locals.
 
 ```
-# use rcu::{Rcu, ThreadLocal};
+# use read_copy_update::{Rcu, ThreadLocal};
 # use std::{thread, time::Duration};
 let mut rcu = Rcu::new(10);
 let tls = ThreadLocal::new(&rcu);
