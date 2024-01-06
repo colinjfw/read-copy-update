@@ -1,0 +1,23 @@
+[package]
+name = "read-copy-update"
+version = "0.1.0"
+edition = "2021"
+
+description = "Provides a read-copy-update locking primitive"
+readme = "readme.md"
+documentation = "https://docs.rs/read-copy-update"
+repository = "https://github.com/colinjfw/read-copy-update"
+license = "MIT"
+authors = ["Colin Walker <me@colinjfw.com>"]
+keywords = ["rcu"]
+categories = ["data-structures"]
+
+[dependencies]
+thread_local = { version = "1.1", optional = true }
+
+[target.'cfg(loom)'.dependencies]
+loom = { version = "0.5", features = ["checkpoint"] }
+
+[features]
+default = []
+thread-local = ["thread_local"]
